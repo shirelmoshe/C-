@@ -1,0 +1,85 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Diagnostics.CodeAnalysis;
+
+namespace EXCEPTION
+{
+    internal class Exception
+    {
+        static void Main(string[] args)
+        {
+            int x = int.Parse(Console.ReadLine());
+            int y = int.Parse(Console.ReadLine());
+            int w = 0;
+
+            try
+            {
+                w = x / y;
+                Console.WriteLine(w);
+            }
+            catch (DivideByZeroException)
+            {
+                y = 0;
+                Console.WriteLine("erorr");
+                Console.WriteLine("{0}", y);
+
+
+            }
+
+
+            int num = int.Parse(Console.ReadLine());
+            bool r = true;
+            while (r)
+            {
+                try
+                {
+                    int sum = 770 / num;
+                    Console.WriteLine(sum);
+                    r = false;
+
+                }
+                catch (DivideByZeroException)
+                {
+
+                    num = int.Parse(Console.ReadLine());
+
+
+
+                }
+            }
+
+
+
+            Console.WriteLine("enter name of file");
+            string fileName = Console.ReadLine();
+            try
+            {
+                string[] file = File.ReadAllLines(fileName);
+                for (int i = 0; i < file.Length; i++)
+                {
+                    Console.WriteLine(file[i]);
+                }
+
+
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("erorr");
+            }
+
+          
+
+        }
+
+       
+
+
+
+        
+    }
+}
